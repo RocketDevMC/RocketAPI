@@ -1,13 +1,16 @@
 package xyz.invisraidinq.rocketapi.api.database.flatfile;
 
 import xyz.invisraidinq.rocketapi.api.config.YamlConfig;
+import xyz.invisraidinq.rocketapi.api.database.IDatabase;
 
 import java.io.File;
 
-public class RocketFlatFile {
+public class RocketFlatFile implements IDatabase {
 
     private final String name;
     private final File path;
+
+    private YamlConfig yamlConfig;
 
     /**
      * Instantiate an {@link RocketFlatFile} class
@@ -25,7 +28,17 @@ public class RocketFlatFile {
      *
      * @return The {@link YamlConfig} file/database
      */
+    @Override
     public YamlConfig connect() {
-        return new YamlConfig(this.name, this.path);
+        this.yamlConfig = new YamlConfig(this.name, this.path);
+        return this.yamlConfig;
+    }
+
+    /**
+     * Disconnect a flatfile
+     */
+    @Override
+    public void disconnect() {
+        this.yamlConfig.save();
     }
 }

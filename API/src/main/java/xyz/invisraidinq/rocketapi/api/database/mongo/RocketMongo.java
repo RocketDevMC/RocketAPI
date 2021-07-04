@@ -1,14 +1,16 @@
 package xyz.invisraidinq.rocketapi.api.database.mongo;
 
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoDatabase;
+import xyz.invisraidinq.rocketapi.api.database.IDatabase;
+import xyz.invisraidinq.rocketapi.api.enums.Severity;
+import xyz.invisraidinq.rocketapi.api.utils.BukkitLogger;
 
 import java.util.Collections;
 
-public class RocketMongo {
+public class RocketMongo implements IDatabase {
 
     private final String databaseName;
     private final String address;
@@ -50,6 +52,12 @@ public class RocketMongo {
         this(databaseName, address, port, false, null, "null", null);
     }
 
+    /**
+     * Connect to an {@link MongoDatabase}
+     *
+     * @return The connected {@link MongoDatabase} database
+     */
+    @Override
     public MongoDatabase connect() {
         ServerAddress serverAddress = new ServerAddress(this.address, this.port);
 
@@ -65,5 +73,13 @@ public class RocketMongo {
         }
 
         return mongoClient.getDatabase(this.databaseName);
+    }
+
+    /**
+     * Disconnect the database
+     */
+    @Override
+    public void disconnect() {
+        BukkitLogger.log(Severity.CRITITAL, "You must save your own documents, RocketMongo can't do it for you!");
     }
 }
