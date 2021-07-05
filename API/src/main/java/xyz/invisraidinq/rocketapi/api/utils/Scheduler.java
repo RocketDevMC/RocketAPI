@@ -5,7 +5,7 @@ import org.bukkit.plugin.Plugin;
 
 public class Scheduler {
 
-    public final Plugin plugin;
+    private final Plugin plugin;
 
     public Scheduler(Plugin plugin) {
         this.plugin = plugin;
