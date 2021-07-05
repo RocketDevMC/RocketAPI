@@ -12,6 +12,7 @@
     <artifactId>Plugin</artifactId>
 
     <build>
+        <finalName>RocketAPI-Bukkit-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

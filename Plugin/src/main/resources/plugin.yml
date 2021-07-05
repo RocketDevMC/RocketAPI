@@ -1,0 +1,5 @@
+name: RocketAPI
+version: ${project.version}
+author: InvisRaidinq
+website: invisraidinq.xyz
+main: xyz.invisraidinq.rocketapi.plugin.RocketAPIPlugin
