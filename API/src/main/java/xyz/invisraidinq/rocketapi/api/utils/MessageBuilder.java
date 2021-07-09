@@ -1,5 +1,6 @@
 package xyz.invisraidinq.rocketapi.api.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -29,5 +30,17 @@ public class MessageBuilder {
     public MessageBuilder send(CommandSender sender) {
         sender.sendMessage(this.message);
         return this;
+    }
+
+    public static void sendGlobalMessage(String message) {
+        Bukkit.broadcastMessage(CC.colour(message));
+    }
+
+    public static void sendGlobalMessage(String message, String permission) {
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            if (player.hasPermission(permission)) {
+                new MessageBuilder(message).colour().send(player);
+            }
+        });
     }
 }
