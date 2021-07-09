@@ -11,7 +11,6 @@ import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
 import java.util.Map;
 
-//Adapted from a public spigotmc resource
 public class JsonConfig {
 
     private final Gson gson = new GsonBuilder()
@@ -28,14 +27,23 @@ public class JsonConfig {
      * @param path The path of the file
      */
     public JsonConfig(String name, File path) {
+        if (!path.exists()) {
+            path.mkdirs();
+        }
+
         this.jsonFile = new File(path, name.contains(".json") ? name : name + ".json");
         if (!this.jsonFile.exists()) {
             try {
                 this.jsonFile.createNewFile();
-                this.entries = this.gson.fromJson(new FileReader(this.jsonFile), HashMap.class);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+        }
+
+        try {
+            this.entries = this.gson.fromJson(new FileReader(this.jsonFile), HashMap.class);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
