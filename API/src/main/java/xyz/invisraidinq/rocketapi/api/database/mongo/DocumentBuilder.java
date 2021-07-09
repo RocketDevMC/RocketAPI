@@ -57,5 +57,9 @@ public class DocumentBuilder {
         return this;
     }
 
+    public Document getAsDocument() {
+        return this.document;
+    }
+
 
 }
