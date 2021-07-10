@@ -1,5 +1,6 @@
 package xyz.invisraidinq.rocketapi.api.database.flatfile;
 
+import org.bukkit.plugin.Plugin;
 import xyz.invisraidinq.rocketapi.api.config.YamlConfig;
 import xyz.invisraidinq.rocketapi.api.database.IDatabase;
 
@@ -7,6 +8,7 @@ import java.io.File;
 
 public class RocketFlatFile implements IDatabase {
 
+    private final Plugin plugin;
     private final String name;
     private final File path;
 
@@ -15,10 +17,12 @@ public class RocketFlatFile implements IDatabase {
     /**
      * Instantiate an {@link RocketFlatFile} class
      *
+     * @param plugin The {@link Plugin} object
      * @param name The name of the file
      * @param path The path of the file
      */
-    public RocketFlatFile(String name, File path) {
+    public RocketFlatFile(Plugin plugin, String name, File path) {
+        this.plugin = plugin;
         this.name = name;
         this.path = path;
     }
@@ -30,7 +34,7 @@ public class RocketFlatFile implements IDatabase {
      */
     @Override
     public YamlConfig connect() {
-        this.yamlConfig = new YamlConfig(this.name, this.path);
+        this.yamlConfig = new YamlConfig(this.plugin, this.name, this.path);
         return this.yamlConfig;
     }
 

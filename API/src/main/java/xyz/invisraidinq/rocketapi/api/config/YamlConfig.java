@@ -2,6 +2,7 @@ package xyz.invisraidinq.rocketapi.api.config;
 
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,22 +14,21 @@ public class YamlConfig extends YamlConfiguration {
     /**
      * Constructor to instantiate an {@link YamlConfig}
      *
+     * @param plugin The {@link Plugin} object
      * @param name The name of the file
      * @param path The path of the file
      */
-    public YamlConfig(String name, File path) {
+    public YamlConfig(Plugin plugin, String name, File path) {
         if (!path.exists()) {
             path.mkdirs();
         }
 
         this.yamlFile = new File(path, name.contains(".yml") ? name : name + ".yml");
         if (!this.yamlFile.exists()) {
-            try {
-                this.yamlFile.createNewFile();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            plugin.saveResource(this.yamlFile.getName(), false);
         }
+
+        this.reload();
     }
 
     /**
