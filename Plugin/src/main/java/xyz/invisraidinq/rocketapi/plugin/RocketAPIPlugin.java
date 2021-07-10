@@ -2,7 +2,6 @@ package xyz.invisraidinq.rocketapi.plugin;
 
 import xyz.invisraidinq.rocketapi.api.RocketPlugin;
 import xyz.invisraidinq.rocketapi.api.command.CommandHandler;
-import xyz.invisraidinq.rocketapi.api.config.JsonConfig;
 import xyz.invisraidinq.rocketapi.api.utils.BukkitLogger;
 import xyz.invisraidinq.rocketapi.plugin.commands.RocketAPICommand;
 
