@@ -22,7 +22,7 @@ public class BukkitLogger {
      * @param text The text to log
      */
     public static void log(String text) {
-        logRaw(CC.colour("[" + JavaPlugin.getPlugin(RocketPlugin.class).getDescription().getName() + "] " + text));
+        logRaw(CC.translate("[" + RocketPlugin.getApiInstance().getDescription().getName() + "] " + text));
     }
 
     /**

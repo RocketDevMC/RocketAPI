@@ -81,7 +81,7 @@ public class ItemFactory {
      */
     public ItemFactory setName(String name) {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
-        itemMeta.setDisplayName(CC.colour(name));
+        itemMeta.setDisplayName(CC.translate(name));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -144,7 +144,7 @@ public class ItemFactory {
      */
     public ItemFactory setLore(List<String> lore) {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
-        itemMeta.setLore(CC.colour(lore));
+        itemMeta.setLore(CC.translate(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -168,7 +168,7 @@ public class ItemFactory {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
         List<String> lore = new ArrayList<>(itemMeta.getLore());
         lore.add(line);
-        itemMeta.setLore(CC.colour(lore));
+        itemMeta.setLore(CC.translate(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -183,7 +183,7 @@ public class ItemFactory {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
         List<String> lore = new ArrayList<>(itemMeta.getLore());
         lore.set(index, line);
-        itemMeta.setLore(CC.colour(lore));
+        itemMeta.setLore(CC.translate(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }

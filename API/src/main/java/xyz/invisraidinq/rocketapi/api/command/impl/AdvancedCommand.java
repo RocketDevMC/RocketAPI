@@ -45,7 +45,7 @@ public class AdvancedCommand implements CommandExecutor, TabCompleter, ICommand 
                 return true;
             }
             
-            sender.sendMessage(CC.colour(
+            sender.sendMessage(CC.translate(
                     "&cInvalid Usage! Available sub-commands for &7" + label + " &care &7" +
                             this.subCommands.stream().map(SubCommand::getName).collect(Collectors.joining("&7, "))));
             return false;
@@ -54,7 +54,7 @@ public class AdvancedCommand implements CommandExecutor, TabCompleter, ICommand 
         SubCommand argument = this.getSubCommand(args[0]);
 
         if (argument == null) {
-            sender.sendMessage(CC.colour("&cSub-command &7" + args[0] + " &cdoes not exist in command &7" + this.name));
+            sender.sendMessage(CC.translate("&cSub-command &7" + args[0] + " &cdoes not exist in command &7" + this.name));
             return false;
         }
 

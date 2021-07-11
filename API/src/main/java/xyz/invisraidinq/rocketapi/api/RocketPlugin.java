@@ -3,6 +3,7 @@ package xyz.invisraidinq.rocketapi.api;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.invisraidinq.rocketapi.api.utils.BukkitLogger;
 import xyz.invisraidinq.rocketapi.api.utils.Scheduler;
 
 import java.util.List;
@@ -10,11 +11,20 @@ import java.util.List;
 public abstract class RocketPlugin extends JavaPlugin {
 
     private Scheduler scheduler;
+    private static RocketPlugin instance;
+
+    public static RocketPlugin getApiInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
+        long start = System.currentTimeMillis();
+        instance = this;
+
         this.scheduler = new Scheduler(this);
         this.onServerStart();
+        BukkitLogger.log("Plugin enabled in " + (System.currentTimeMillis() - start) + "ms");
     }
 
     @Override

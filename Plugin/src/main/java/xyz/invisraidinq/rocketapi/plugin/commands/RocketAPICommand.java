@@ -20,6 +20,6 @@ public class RocketAPICommand extends SimpleCommand {
 
     @Override
     public void handleCommand(CommandSender sender, String label, String[] args) {
-        sender.sendMessage(CC.colour("&eThis server is running &cRocketAPI &eby &cInvisRaidinq"));
+        sender.sendMessage(CC.translate("&eThis server is running &cRocketAPI &eby &cInvisRaidinq"));
     }
 }
