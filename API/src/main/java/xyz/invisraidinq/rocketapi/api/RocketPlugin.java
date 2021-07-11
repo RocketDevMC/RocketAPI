@@ -11,16 +11,10 @@ import java.util.List;
 public abstract class RocketPlugin extends JavaPlugin {
 
     private Scheduler scheduler;
-    private static RocketPlugin instance;
-
-    public static RocketPlugin getApiInstance() {
-        return instance;
-    }
 
     @Override
     public void onEnable() {
         long start = System.currentTimeMillis();
-        instance = this;
 
         this.scheduler = new Scheduler(this);
         this.onServerStart();

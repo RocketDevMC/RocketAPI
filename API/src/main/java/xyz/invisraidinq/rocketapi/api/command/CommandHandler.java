@@ -74,7 +74,7 @@ public class CommandHandler {
     public void registerAdvancedCommand(AdvancedCommand advancedCommand) {
         PluginCommand command = this.getCommand(advancedCommand.getName(), this.plugin);
 
-        command.setPermissionMessage(CC.translate(this.noPermissionMessage));
+        command.setPermissionMessage(CC.colour(this.noPermissionMessage));
 
         if (advancedCommand.getPermission() != null) {
             command.setPermission(advancedCommand.getPermission().toLowerCase());
@@ -103,7 +103,7 @@ public class CommandHandler {
     public void registerSimpleCommand(SimpleCommand simpleCommand) {
         PluginCommand command = this.getCommand(simpleCommand.getName(), this.plugin);
 
-        command.setPermissionMessage(CC.translate(this.noPermissionMessage));
+        command.setPermissionMessage(CC.colour(this.noPermissionMessage));
 
         if (simpleCommand.getPermission() != null) {
             command.setPermission(simpleCommand.getPermission().toLowerCase());

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -81,7 +80,7 @@ public class ItemFactory {
      */
     public ItemFactory setName(String name) {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
-        itemMeta.setDisplayName(CC.translate(name));
+        itemMeta.setDisplayName(CC.colour(name));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -144,7 +143,7 @@ public class ItemFactory {
      */
     public ItemFactory setLore(List<String> lore) {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
-        itemMeta.setLore(CC.translate(lore));
+        itemMeta.setLore(CC.colour(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -168,7 +167,7 @@ public class ItemFactory {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
         List<String> lore = new ArrayList<>(itemMeta.getLore());
         lore.add(line);
-        itemMeta.setLore(CC.translate(lore));
+        itemMeta.setLore(CC.colour(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }
@@ -183,7 +182,7 @@ public class ItemFactory {
         ItemMeta itemMeta = this.itemStack.getItemMeta();
         List<String> lore = new ArrayList<>(itemMeta.getLore());
         lore.set(index, line);
-        itemMeta.setLore(CC.translate(lore));
+        itemMeta.setLore(CC.colour(lore));
         this.itemStack.setItemMeta(itemMeta);
         return this;
     }

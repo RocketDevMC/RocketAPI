@@ -13,7 +13,7 @@ public class MessageBuilder {
     }
 
     public MessageBuilder colour() {
-        this.message = CC.translate(this.message);
+        this.message = CC.colour(this.message);
         return this;
     }
 
@@ -33,7 +33,7 @@ public class MessageBuilder {
     }
 
     public static void sendGlobalMessage(String message) {
-        Bukkit.broadcastMessage(CC.translate(message));
+        Bukkit.broadcastMessage(CC.colour(message));
     }
 
     public static void sendGlobalMessage(String message, String permission) {

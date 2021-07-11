@@ -58,7 +58,6 @@ public class RocketMongo implements IDatabase {
      * @return The connected {@link MongoDatabase} database
      */
     @Override
-    @Deprecated
     public MongoDatabase connect() {
         ServerAddress serverAddress = new ServerAddress(this.address, this.port);
 

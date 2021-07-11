@@ -13,7 +13,7 @@ public class CC {
      * @param input The text to translate
      * @return The translated text
      */
-    public static String translate(String input) {
+    public static String colour(String input) {
         return ChatColor.translateAlternateColorCodes('&', input);
     }
 
@@ -23,9 +23,9 @@ public class CC {
      * @param input The list to translate
      * @return A list of translated strings
      */
-    public static List<String> translate(List<String> input) {
+    public static List<String> colour(List<String> input) {
         List<String> translatedStrings = new ArrayList<>();
-        input.forEach(string -> translatedStrings.add(translate(string)));
+        input.forEach(string -> translatedStrings.add(colour(string)));
         return translatedStrings;
     }
 }
