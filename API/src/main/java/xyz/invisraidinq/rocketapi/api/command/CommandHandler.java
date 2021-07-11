@@ -74,17 +74,13 @@ public class CommandHandler {
     public void registerAdvancedCommand(AdvancedCommand advancedCommand) {
         PluginCommand command = this.getCommand(advancedCommand.getName(), this.plugin);
 
-        command.setPermissionMessage(CC.colour(this.noPermissionMessage));
+        command.setPermissionMessage(command.getPermissionMessage() == null ? CC.colour("&cNo Permission") : CC.colour(this.noPermissionMessage));
 
-        if (advancedCommand.getPermission() != null) {
-            command.setPermission(advancedCommand.getPermission().toLowerCase());
-        }
+        if (advancedCommand.getPermission() != null) command.setPermission(advancedCommand.getPermission().toLowerCase());
 
         command.setDescription(advancedCommand.getDescription() != null ? advancedCommand.getDescription() : "This is the default description!");
 
-        if (advancedCommand.getAliases() != null) {
-            command.setAliases(advancedCommand.getAliases());
-        }
+        if (advancedCommand.getAliases() != null) command.setAliases(advancedCommand.getAliases());
 
         command.setExecutor(advancedCommand);
         command.setTabCompleter(advancedCommand);
@@ -103,17 +99,13 @@ public class CommandHandler {
     public void registerSimpleCommand(SimpleCommand simpleCommand) {
         PluginCommand command = this.getCommand(simpleCommand.getName(), this.plugin);
 
-        command.setPermissionMessage(CC.colour(this.noPermissionMessage));
+        command.setPermissionMessage(command.getPermissionMessage() == null ? CC.colour("&cNo Permission") : CC.colour(this.noPermissionMessage));
 
-        if (simpleCommand.getPermission() != null) {
-            command.setPermission(simpleCommand.getPermission().toLowerCase());
-        }
+        if (simpleCommand.getPermission() != null) command.setPermission(simpleCommand.getPermission().toLowerCase());
 
         command.setDescription(simpleCommand.getDescription() != null ? simpleCommand.getDescription() : "This is the default description!");
 
-        if (simpleCommand.getAliases() != null) {
-            command.setAliases(simpleCommand.getAliases());
-        }
+        if (simpleCommand.getAliases() != null) command.setAliases(simpleCommand.getAliases());
 
         command.setExecutor(simpleCommand);
         command.setTabCompleter(simpleCommand);
