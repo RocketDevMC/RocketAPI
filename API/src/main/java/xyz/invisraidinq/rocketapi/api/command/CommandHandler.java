@@ -82,7 +82,9 @@ public class CommandHandler {
 
         command.setDescription(advancedCommand.getDescription() != null ? advancedCommand.getDescription() : "This is the default description!");
 
-        command.setAliases(advancedCommand.getAliases());
+        if (advancedCommand.getAliases() != null) {
+            command.setAliases(advancedCommand.getAliases());
+        }
 
         command.setExecutor(advancedCommand);
         command.setTabCompleter(advancedCommand);
@@ -109,7 +111,9 @@ public class CommandHandler {
 
         command.setDescription(simpleCommand.getDescription() != null ? simpleCommand.getDescription() : "This is the default description!");
 
-        command.setAliases(simpleCommand.getAliases());
+        if (simpleCommand.getAliases() != null) {
+            command.setAliases(simpleCommand.getAliases());
+        }
 
         command.setExecutor(simpleCommand);
         command.setTabCompleter(simpleCommand);

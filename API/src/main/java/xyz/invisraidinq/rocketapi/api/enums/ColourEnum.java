@@ -1,6 +1,6 @@
 package xyz.invisraidinq.rocketapi.api.enums;
 
-public enum WoolEnum {
+public enum ColourEnum {
 
     WHITE((short) 0),
     ORANGE((short) 1),
@@ -22,11 +22,11 @@ public enum WoolEnum {
     private final short data;
 
     /**
-     * Constructor for the {@link WoolEnum}
+     * Constructor for the {@link ColourEnum}
      *
      * @param data The wool data
      */
-    WoolEnum(short data) {
+    ColourEnum(short data) {
         this.data = data;
     }
 
