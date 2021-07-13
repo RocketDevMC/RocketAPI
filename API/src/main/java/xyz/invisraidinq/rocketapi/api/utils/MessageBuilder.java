@@ -16,7 +16,11 @@ public class MessageBuilder {
     
     public MessageBuilder(List<String> messages) {
         for (String message : messages) {
-            this.message += message + "\n";
+            if (this.message == null) {
+                this.message = message;
+            } else {
+                this.message += "\n" + message;
+            }
         }
     }
 
