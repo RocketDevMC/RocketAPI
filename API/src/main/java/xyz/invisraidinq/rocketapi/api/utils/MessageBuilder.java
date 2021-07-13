@@ -4,12 +4,20 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class MessageBuilder {
 
     private String message;
 
     public MessageBuilder(String message) {
         this.message = message;
+    }
+    
+    public MessageBuilder(List<String> messages) {
+        for (String message : messages) {
+            this.message += message + "\n";
+        }
     }
 
     public MessageBuilder colour() {
