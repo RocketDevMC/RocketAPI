@@ -2,6 +2,7 @@ package xyz.invisraidinq.rocketapi.api.command.impl;
 
 import com.google.common.base.Preconditions;
 import org.bukkit.command.*;
+import xyz.invisraidinq.rocketapi.api.command.CommandData;
 import xyz.invisraidinq.rocketapi.api.command.ICommand;
 import xyz.invisraidinq.rocketapi.api.utils.CC;
 
@@ -41,7 +42,7 @@ public class AdvancedCommand implements CommandExecutor, TabCompleter, ICommand 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 0) {
             if (this.baseCommand != null) {
-                this.baseCommand.handleCommand(sender, label, args);
+                this.baseCommand.handleCommand(new CommandData(sender, command, label, args));
                 return true;
             }
             
@@ -58,7 +59,7 @@ public class AdvancedCommand implements CommandExecutor, TabCompleter, ICommand 
             return false;
         }
 
-        argument.handleCommand(sender, label, args);
+        argument.handleCommand(new CommandData(sender, command, label, args));
         return true;
     }
 

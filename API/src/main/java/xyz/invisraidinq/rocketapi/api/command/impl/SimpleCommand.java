@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import xyz.invisraidinq.rocketapi.api.command.CommandData;
 import xyz.invisraidinq.rocketapi.api.command.ICommand;
 
 import java.util.List;
@@ -35,18 +36,16 @@ public abstract class SimpleCommand implements ICommand, CommandExecutor, TabCom
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        this.handleCommand(sender, label, args);
+        this.handleCommand(new CommandData(sender, command, label, args));
         return true;
     }
 
     /**
      * Handle the command
      *
-     * @param sender The command sender
-     * @param label The label sent by the player
-     * @param args The args sent by the player
+     * @param commandData The command data
      */
-    public abstract void handleCommand(CommandSender sender, String label, String[] args);
+    public abstract void handleCommand(CommandData commandData);
 
 
     /**

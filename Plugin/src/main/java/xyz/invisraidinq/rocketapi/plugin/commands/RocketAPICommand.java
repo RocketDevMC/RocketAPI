@@ -1,6 +1,6 @@
 package xyz.invisraidinq.rocketapi.plugin.commands;
 
-import org.bukkit.command.CommandSender;
+import xyz.invisraidinq.rocketapi.api.command.CommandData;
 import xyz.invisraidinq.rocketapi.api.command.impl.SimpleCommand;
 import xyz.invisraidinq.rocketapi.api.utils.CC;
 
@@ -19,7 +19,14 @@ public class RocketAPICommand extends SimpleCommand {
     }
 
     @Override
-    public void handleCommand(CommandSender sender, String label, String[] args) {
-        sender.sendMessage(CC.colour("&eThis server is running &cRocketAPI &eby &cInvisRaidinq"));
+    public void handleCommand(CommandData commandData) {
+        if (commandData.isPlayer()) {
+            commandData.getPlayer().sendMessage(CC.colour("&eThis server is running &cRocketAPI &eby &cInvisRaidinq"));
+        } else {
+            commandData.getSender().sendMessage(new String[] {
+                    CC.colour("&eThis server is running &cRocketAPI &eby &cInvisRaidinq"),
+                    CC.colour("&eCurrent Version: STABLE")
+            });
+        }
     }
 }
