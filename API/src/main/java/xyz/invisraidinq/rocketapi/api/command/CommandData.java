@@ -43,6 +43,10 @@ public class CommandData {
     }
 
     public int getArgLength() {
-        return this.args.length - 1;
+        return this.args.length;
+    }
+
+    public String getArg(int index) {
+        return this.args[index];
     }
 }
