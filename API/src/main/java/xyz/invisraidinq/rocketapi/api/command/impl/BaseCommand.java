@@ -2,6 +2,7 @@ package xyz.invisraidinq.rocketapi.api.command.impl;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import xyz.invisraidinq.rocketapi.api.command.CommandData;
 
 import java.util.List;
 
@@ -10,11 +11,9 @@ public abstract class BaseCommand {
     /**
      * Handle the command
      *
-     * @param sender The command sender
-     * @param label The label sent by the player
-     * @param args The args sent by the player
+     * @param commandData The command data
      */
-    public abstract void handleCommand(CommandSender sender, String label, String[] args);
+    public abstract void handleCommand(CommandData commandData);
 
     /**
      * Handle the tab completion of a command
