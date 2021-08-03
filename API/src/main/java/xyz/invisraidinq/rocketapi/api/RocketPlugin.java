@@ -25,7 +25,7 @@ public abstract class RocketPlugin extends JavaPlugin {
     public abstract void onServerStart();
     public abstract void onServerStop();
 
-    /**
+    /** 
      * Get the {@link Scheduler}
      *
      * @return The {@link Scheduler} for the plugin
