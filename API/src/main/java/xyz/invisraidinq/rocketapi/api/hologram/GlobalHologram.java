@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GlobalHologram {
 
-    private List<ArmorStand> armorStands = new ArrayList<>();
+    private final List<ArmorStand> armorStands = new ArrayList<>();
     private List<String> lines = new ArrayList<>();
     private Location spawnLocation;
 
