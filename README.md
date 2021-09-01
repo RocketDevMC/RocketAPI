@@ -11,7 +11,7 @@ RocketAPI uses maven to handle all of its dependencies. You can install it using
 ```xml
 	<repository>
 	    <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
+            <url>https://jitpack.io</url>
 	</repository>
 ```
 
@@ -20,7 +20,7 @@ RocketAPI uses maven to handle all of its dependencies. You can install it using
 	    <groupId>com.github.InvisRaidinq.RocketAPI</groupId>
 	    <artifactId>API</artifactId>
 	    <version>64d04885bf</version>
-        <scope>compile</scope>
+            <scope>compile</scope>
 	</dependency>
 ```
 
