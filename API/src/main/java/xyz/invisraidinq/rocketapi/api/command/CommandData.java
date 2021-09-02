@@ -49,4 +49,5 @@ public class CommandData {
     public String getArg(int index) {
         return this.args[index];
     }
+
 }

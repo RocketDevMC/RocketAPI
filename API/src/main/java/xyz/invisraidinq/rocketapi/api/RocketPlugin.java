@@ -9,10 +9,20 @@ import java.util.List;
 
 public abstract class RocketPlugin extends JavaPlugin {
 
+    private static RocketPlugin instance;
+
     private Scheduler scheduler;
+
+    private String pluginName;
+    private String pluginVersion;
 
     @Override
     public void onEnable() {
+        instance = this;
+
+        this.pluginName = this.getDescription().getName();
+        this.pluginVersion = this.getDescription().getVersion();
+
         this.scheduler = new Scheduler(this);
         this.onServerStart();
     }
@@ -24,6 +34,18 @@ public abstract class RocketPlugin extends JavaPlugin {
 
     public abstract void onServerStart();
     public abstract void onServerStop();
+
+    public static RocketPlugin getInstance() {
+        return instance;
+    }
+
+    public String getPluginName() {
+        return this.pluginName;
+    }
+
+    public String getPluginVersion() {
+        return this.pluginVersion;
+    }
 
     /**
      * Get the {@link Scheduler}

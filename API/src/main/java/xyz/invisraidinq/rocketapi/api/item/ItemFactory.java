@@ -1,4 +1,4 @@
-package xyz.invisraidinq.rocketapi.api.utils;
+package xyz.invisraidinq.rocketapi.api.item;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import xyz.invisraidinq.rocketapi.api.utils.CC;
 
 /**
  * Easily create itemstacks, without messing your hands.
